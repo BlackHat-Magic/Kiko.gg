@@ -12,17 +12,17 @@
         <link
             rel="icon"
             type="image/png"
-            href="{{ url_for('static', filename='img/kiko.png') }}"
+            href="/static/img/kiko.png"
         />
 
         <!-- Tailwind v4 (compiled output) -->
         <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='dist/main.css') }}"
+            href="/static/dist/main.css"
         />
 
         <!-- Parallax logic FIRST so Alpine can see it -->
-        <script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <script defer src="/static/js/index.js"></script>
 
         <!-- Alpine AFTER -->
         <script
@@ -84,7 +84,7 @@
                     <!-- Profile -->
                     <header class="flex flex-col items-center gap-4 text-center">
                         <img
-                            src="{{ url_for('static', filename='img/kiko.png') }}"
+                            src="/static/img/kiko.png"
                             alt="Algora Kiko"
                             class="size-28 rounded-full object-cover ring-2 ring-[oklch(70%_0.10_320_/0.5)]"
                         />
@@ -103,21 +103,13 @@
 
                     <!-- Links (uniform pink accent, left-to-right fill, with icons) -->
                     <div class="mt-8 space-y-3">
-                        {% for item in [
-                            {'label': 'YouTube',     'href': url_for('youtube'),     'icon': 'yt'},
-                            {'label': 'Twitter',     'href': url_for('twitter'),     'icon': 'x'},
-                            {'label': 'Twitch',        'href': url_for('twitch'),        'icon': 'twitch'},
-                            {'label': 'Discord',     'href': url_for('discord'),     'icon': 'discord'},
-                            {'label': 'Instagram', 'href': url_for('instagram'), 'icon': 'ig'},
-                            {'label': 'TikTok',        'href': url_for('tiktok'),        'icon': 'tiktok'},
-                            {'label': 'Spotify',     'href': url_for('spotify'),     'icon': 'spotify'}
-                        ] %}
+                        <!-- YouTube -->
                         <a
-                            href="{{ item.href }}"
+                            href="https://www.youtube.com/@AlgoraKiko"
                             target="_blank"
                             rel="me noopener"
                             class="group relative block w-full overflow-hidden rounded-2xl
-                                        border border-accent
+                                        border border-[oklch(40%_0.09_320_/0.7)]
                                         px-4 py-3 text-[oklch(95%_0.02_320)]
                                         transition-transform duration-150
                                         hover:-translate-y-0.5 focus:-translate-y-0.5
@@ -127,25 +119,47 @@
                         >
                             <span
                                 class="pointer-events-none absolute inset-0 w-0
-                                            bg-accent/90
+                                            bg-[oklch(35%_0.08_320_/0.9)]
                                             transition-[width] duration-500 ease-out
                                             group-hover:w-full group-focus-visible:w-full"
                                 aria-hidden="true"
                             ></span>
 
                             <span class="relative z-[1] flex items-center gap-3">
-                                <!-- Icon (currentColor = pink accent on hover fill; readable on base) -->
-                                {% if item.icon == 'twitch' %}
-                                <svg class="size-5 text-[oklch(70%_0.12_320)]" fill="currentColor" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <title>Twitch</title>
-                                        <path d="M26.711 14.929l-4.284 4.284h-4.285l-3.749 3.749v-3.749h-4.82v-16.067h17.138zM8.502 1.004l-5.356 5.356v19.279h6.427v5.356l5.356-5.356h4.284l9.641-9.64v-14.996zM21.356 6.895h2.142v6.427h-2.142zM15.464 6.895h2.143v6.427h-2.144z"></path>
+                                        <path d="M19.67 8.14002C19.5811 7.7973 19.4028 7.48433 19.1533 7.23309C18.9038 6.98185 18.5921 6.80134 18.25 6.71001C16.176 6.4654 14.0883 6.35517 12 6.38001C9.91174 6.35517 7.82405 6.4654 5.75001 6.71001C5.40793 6.80134 5.09622 6.98185 4.84674 7.23309C4.59725 7.48433 4.41894 7.7973 4.33001 8.14002C4.10282 9.41396 3.99236 10.706 4.00001 12C3.99198 13.3007 4.10244 14.5994 4.33001 15.88C4.42355 16.2172 4.60391 16.5239 4.85309 16.7696C5.10226 17.0153 5.41153 17.1913 5.75001 17.28C7.82405 17.5246 9.91174 17.6349 12 17.61C14.0883 17.6349 16.176 17.5246 18.25 17.28C18.5885 17.1913 18.8978 17.0153 19.1469 16.7696C19.3961 16.5239 19.5765 16.2172 19.67 15.88C19.8976 14.5994 20.008 13.3007 20 12C20.0077 10.706 19.8972 9.41396 19.67 8.14002ZM10.36 14.39V9.63001L14.55 12L10.36 14.38V14.39Z" fill="currentColor"></path>
                                     </g>
                                 </svg>
+                                <span class="font-medium">YouTube</span>
+                            </span>
+                        </a>
 
-                                {% elif item.icon == 'x' %}
+                        <!-- Twitter -->
+                        <a
+                            href="https://twitter.com/AlgoraKiko"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="relative z-[1] flex items-center gap-3">
                                 <svg class="size-5 text-[oklch(70%_0.12_320)]" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -154,8 +168,68 @@
                                         <path style="display: inline;" d="M459.186,151.787c0.203,4.501,0.305,9.023,0.305,13.565 c0,138.542-105.461,298.285-298.274,298.285c-59.209,0-114.322-17.357-160.716-47.104c8.212,0.973,16.546,1.47,25.012,1.47 c49.121,0,94.318-16.759,130.209-44.884c-45.887-0.841-84.596-31.154-97.938-72.804c6.408,1.227,12.968,1.886,19.73,1.886 c9.55,0,18.816-1.287,27.617-3.68c-47.955-9.633-84.1-52.001-84.1-102.795c0-0.446,0-0.882,0.011-1.318 c14.133,7.847,30.294,12.562,47.488,13.109c-28.134-18.796-46.637-50.885-46.637-87.262c0-19.212,5.16-37.218,14.193-52.7 c51.707,63.426,128.941,105.156,216.072,109.536c-1.784-7.675-2.718-15.674-2.718-23.896c0-57.891,46.941-104.832,104.832-104.832 c30.173,0,57.404,12.734,76.525,33.102c23.887-4.694,46.313-13.423,66.569-25.438c-7.827,24.485-24.434,45.025-46.089,58.002 c21.209-2.535,41.426-8.171,60.222-16.505C497.448,118.542,479.666,137.004,459.186,151.787z"></path>
                                     </g>
                                 </svg>
+                                <span class="font-medium">Twitter</span>
+                            </span>
+                        </a>
 
-                                {% elif item.icon == 'discord' %}
+                        <!-- Twitch -->
+                        <a
+                            href="https://twitch.tv/AlgoraKiko"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="relative z-[1] flex items-center gap-3">
+                                <svg class="size-5 text-[oklch(70%_0.12_320)]" fill="currentColor" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>Twitch</title>
+                                        <path d="M26.711 14.929l-4.284 4.284h-4.285l-3.749 3.749v-3.749h-4.82v-16.067h17.138zM8.502 1.004l-5.356 5.356v19.279h6.427v5.356l5.356-5.356h4.284l9.641-9.64v-14.996zM21.356 6.895h2.142v6.427h-2.142zM15.464 6.895h2.143v6.427h-2.144z"></path>
+                                    </g>
+                                </svg>
+                                <span class="font-medium">Twitch</span>
+                            </span>
+                        </a>
+
+                        <!-- Discord -->
+                        <a
+                            href="https://discord.com/invite/cFVFG26"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="relative z-[1] flex items-center gap-3">
                                 <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -163,17 +237,33 @@
                                         <path d="M18.59 5.88997C17.36 5.31997 16.05 4.89997 14.67 4.65997C14.5 4.95997 14.3 5.36997 14.17 5.69997C12.71 5.47997 11.26 5.47997 9.83001 5.69997C9.69001 5.36997 9.49001 4.95997 9.32001 4.65997C7.94001 4.89997 6.63001 5.31997 5.40001 5.88997C2.92001 9.62997 2.25001 13.28 2.58001 16.87C4.23001 18.1 5.82001 18.84 7.39001 19.33C7.78001 18.8 8.12001 18.23 8.42001 17.64C7.85001 17.43 7.31001 17.16 6.80001 16.85C6.94001 16.75 7.07001 16.64 7.20001 16.54C10.33 18 13.72 18 16.81 16.54C16.94 16.65 17.07 16.75 17.21 16.85C16.7 17.16 16.15 17.42 15.59 17.64C15.89 18.23 16.23 18.8 16.62 19.33C18.19 18.84 19.79 18.1 21.43 16.87C21.82 12.7 20.76 9.08997 18.61 5.88997H18.59ZM8.84001 14.67C7.90001 14.67 7.13001 13.8 7.13001 12.73C7.13001 11.66 7.88001 10.79 8.84001 10.79C9.80001 10.79 10.56 11.66 10.55 12.73C10.55 13.79 9.80001 14.67 8.84001 14.67ZM15.15 14.67C14.21 14.67 13.44 13.8 13.44 12.73C13.44 11.66 14.19 10.79 15.15 10.79C16.11 10.79 16.87 11.66 16.86 12.73C16.86 13.79 16.11 14.67 15.15 14.67Z" fill="currentColor"></path> 
                                     </g>
                                 </svg>
+                                <span class="font-medium">Discord</span>
+                            </span>
+                        </a>
 
-                                {% elif item.icon == 'yt' %}
-                                <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M19.67 8.14002C19.5811 7.7973 19.4028 7.48433 19.1533 7.23309C18.9038 6.98185 18.5921 6.80134 18.25 6.71001C16.176 6.4654 14.0883 6.35517 12 6.38001C9.91174 6.35517 7.82405 6.4654 5.75001 6.71001C5.40793 6.80134 5.09622 6.98185 4.84674 7.23309C4.59725 7.48433 4.41894 7.7973 4.33001 8.14002C4.10282 9.41396 3.99236 10.706 4.00001 12C3.99198 13.3007 4.10244 14.5994 4.33001 15.88C4.42355 16.2172 4.60391 16.5239 4.85309 16.7696C5.10226 17.0153 5.41153 17.1913 5.75001 17.28C7.82405 17.5246 9.91174 17.6349 12 17.61C14.0883 17.6349 16.176 17.5246 18.25 17.28C18.5885 17.1913 18.8978 17.0153 19.1469 16.7696C19.3961 16.5239 19.5765 16.2172 19.67 15.88C19.8976 14.5994 20.008 13.3007 20 12C20.0077 10.706 19.8972 9.41396 19.67 8.14002ZM10.36 14.39V9.63001L14.55 12L10.36 14.38V14.39Z" fill="currentColor"></path>
-                                    </g>
-                                </svg>
+                        <!-- Instagram -->
+                        <a
+                            href="https://www.instagram.com/algorakiko/"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
 
-                                {% elif item.icon == 'ig' %}
+                            <span class="relative z-[1] flex items-center gap-3">
                                 <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_iconCarrier">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="currentColor"></path>
@@ -181,13 +271,63 @@
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="currentColor"></path>
                                     </g>
                                 </svg>
+                                <span class="font-medium">Instagram</span>
+                            </span>
+                        </a>
 
-                                {% elif item.icon == 'tiktok' %}
+                        <!-- TikTok -->
+                        <a
+                            href="https://www.tiktok.com/@algorakiko"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="relative z-[1] flex items-center gap-3">
                                 <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
                                     <path d="M16.656 1.029c1.637-.025 3.262-.012 4.886-.025.054 2.031.878 3.859 2.189 5.213 1.411 1.271 3.247 2.095 5.271 2.235v5.036c-1.912-.048-3.71-.489-5.331-1.247-.784-.377-1.447-.764-2.077-1.196.012 3.649.012 7.298-.025 10.934-.103 1.853-.719 3.543-1.707 4.954-1.652 2.366-4.328 3.919-7.371 4.011-2.233.097-4.371-.502-6.047-1.342-2.508-1.509-4.238-4.091-4.558-7.094-.059-.666-.059-1.33 0-1.985.49-4.779 4.494-8.476 9.361-8.476.547 0 1.083.047 1.604.136.023 1.845-.048 3.689-.048 5.538a3.21 3.21 0 1 0 2.93 3.02c.125-2.237.075-4.461.087-6.698.012-5.036-.012-10.060.025-15.083z"/>
                                 </svg>
+                                <span class="font-medium">TikTok</span>
+                            </span>
+                        </a>
 
-                                {% elif item.icon == 'spotify' %}
+                        <!-- Spotify -->
+                        <a
+                            href="https://open.spotify.com/user/jailenetalampas"
+                            target="_blank"
+                            rel="me noopener"
+                            class="group relative block w-full overflow-hidden rounded-2xl
+                                        border border-[oklch(40%_0.09_320_/0.7)]
+                                        px-4 py-3 text-[oklch(95%_0.02_320)]
+                                        transition-transform duration-150
+                                        hover:-translate-y-0.5 focus:-translate-y-0.5
+                                        focus:outline-none focus-visible:ring-2
+                                        focus-visible:ring-[oklch(70%_0.12_320_/0.7)]
+                                        active:translate-y-0"
+                        >
+                            <span
+                                class="pointer-events-none absolute inset-0 w-0
+                                            bg-[oklch(35%_0.08_320_/0.9)]
+                                            transition-[width] duration-500 ease-out
+                                            group-hover:w-full group-focus-visible:w-full"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="relative z-[1] flex items-center gap-3">
                                 <svg class="size-5 text-[oklch(70%_0.12_320)]" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -201,12 +341,9 @@
                                         </g>
                                     </g>
                                 </svg>
-                                {% endif %}
-
-                                <span class="font-medium">{{ item.label }}</span>
+                                <span class="font-medium">Spotify</span>
                             </span>
                         </a>
-                        {% endfor %}
                     </div>
 
                     <!-- iOS motion permission prompt (only if needed) -->
@@ -224,7 +361,7 @@
                             @click="requestPermission()"
                             type="button"
                             class="mt-3 inline-flex items-center gap-2 rounded-lg
-                                         border border-accent px-3 py-1.5 text-sm font-medium
+                                         border border-[oklch(40%_0.09_320_/0.7)] px-3 py-1.5 text-sm font-medium
                                          text-[oklch(95%_0.02_320)]
                                          transition-colors hover:bg-[oklch(35%_0.12_320_/0.6)]
                                          focus:outline-none focus-visible:ring-2
